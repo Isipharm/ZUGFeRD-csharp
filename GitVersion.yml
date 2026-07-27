@@ -9,7 +9,7 @@ branches:
     prevent-increment:
       of-merged-branch: true
     source-branches: ['feature', 'bugfix', 'hotfix']
-    regex: ^main$
+    regex: ^master$
     is-main-branch: true
 
   support:
@@ -22,25 +22,25 @@ branches:
     label: 'feat-{BranchName}'
     increment: Minor
     regex: ^features?[\/-](?<BranchName>.+)
-    source-branches: ['main']
+    source-branches: ['master']
   
   bugfix:
     label: 'fix-{BranchName}'
     increment: Patch
     regex: ^(bugfix(es)?|hotfix(es)?)[\/-](?<BranchName>.+)
-    source-branches: ['main']
+    source-branches: ['master']
 
   release:
     label: rc
     increment: Patch
     regex: ^release[\/-](?<BranchName>.+)
-    source-branches: ['main']  
+    source-branches: ['master']  
 
   unknown:
     label: '{BranchName}'
     increment: Patch
     regex: ^(?<BranchName>.+)
-    source-branches: ['main']  
+    source-branches: ['master']  
 
 ignore:
   sha: []
