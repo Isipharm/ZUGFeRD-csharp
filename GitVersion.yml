@@ -3,7 +3,7 @@ strategies:
   - TaggedCommit
   - Fallback
 branches:
-  main:
+  master:
     label: ''
     increment: Patch
     prevent-increment:
