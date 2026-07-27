@@ -1,0 +1,47 @@
+workflow: TrunkBased/preview1
+strategies:
+  - TaggedCommit
+  - Fallback
+branches:
+  main:
+    label: ''
+    increment: Patch
+    prevent-increment:
+      of-merged-branch: true
+    source-branches: ['feature', 'bugfix', 'hotfix']
+    regex: ^main$
+    is-main-branch: true
+
+  support:
+    label: rel
+    increment: Patch
+    regex: ^support[\/-](?<BranchName>.+)
+    source-branches: ['hotfix']  # ? SEULEMENT hotfix !
+  
+  feature:
+    label: 'feat-{BranchName}'
+    increment: Minor
+    regex: ^features?[\/-](?<BranchName>.+)
+    source-branches: ['main']
+  
+  bugfix:
+    label: 'fix-{BranchName}'
+    increment: Patch
+    regex: ^(bugfix(es)?|hotfix(es)?)[\/-](?<BranchName>.+)
+    source-branches: ['main']
+
+  release:
+    label: rc
+    increment: Patch
+    regex: ^release[\/-](?<BranchName>.+)
+    source-branches: ['main']  
+
+  unknown:
+    label: '{BranchName}'
+    increment: Patch
+    regex: ^(?<BranchName>.+)
+    source-branches: ['main']  
+
+ignore:
+  sha: []
+merge-message-formats: {}
