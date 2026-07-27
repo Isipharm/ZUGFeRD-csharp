@@ -17,7 +17,7 @@ branches:
     increment: Patch
     regex: ^support[\/-](?<BranchName>.+)
     source-branches: ['hotfix']  # ? SEULEMENT hotfix !
-  
+   
   feature:
     label: 'feat-{BranchName}'
     increment: Minor
