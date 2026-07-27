@@ -1357,6 +1357,7 @@ namespace s2industries.ZUGFeRD
 
                 if (tradeAllowanceCharge.Tax.CategoryCode.HasValue)
                 {
+                    _Writer.WriteOptionalElementString("ram", "ExemptionReason", string.IsNullOrEmpty(tradeAllowanceCharge.Tax.ExemptionReason) ? _TranslateTaxCategoryCode(tradeAllowanceCharge.Tax.CategoryCode) : tradeAllowanceCharge.Tax.ExemptionReason, Profile.Extended); // BT-X-96
                     writer.WriteElementString("ram", "CategoryCode", tradeAllowanceCharge.Tax.CategoryCode.EnumToString());
                 }
 
@@ -1968,7 +1969,7 @@ namespace s2industries.ZUGFeRD
                 case TaxCategoryCodes.E:
                     return "steuerbefreit";
                 case TaxCategoryCodes.G:
-                    return "freier Ausfuhrartikel, Steuer nicht erhoben";
+                    return "Exportation hors UE";   //"Export outside the EU"; // "Export hors UE";    //return "freier Ausfuhrartikel, Steuer nicht erhoben";
                 case TaxCategoryCodes.H:
                     break;
                 case TaxCategoryCodes.O:

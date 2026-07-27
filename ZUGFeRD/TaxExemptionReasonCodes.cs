@@ -514,6 +514,15 @@ namespace s2industries.ZUGFeRD
         VATEX_EU_D,
 
         /// <summary>
+        /// Extra-Community acquisition 
+        /// </summary>
+        /// <remarks>
+        /// Indication that the VAT Extra-Community has been applied. - Only use with VAT category code G
+        /// </remarks>
+        [EnumStringValue("VATEX-EU-EX")]
+        VATEX_EU_EX,
+
+        /// <summary>
         /// Intra-Community acquisition of second hand goods
         /// </summary>
         /// <remarks>
